@@ -21,3 +21,8 @@ target
 #.idea/
 .aider*
 !.aider.conf.yaml
+
+
+# Added by cargo
+
+/target
