@@ -1,0 +1,13 @@
+[package]
+name = "zenocode-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+tokio = { workspace = true, features = ["sync", "rt-multi-thread"] }
+tracing = { workspace = true }
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
