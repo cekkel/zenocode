@@ -1,7 +1,6 @@
 use async_trait::async_trait;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
-use zenocode_core::{Config, CoreError, LLMProvider};
 
 #[async_trait]
 pub trait ProviderFactory: Send + Sync {

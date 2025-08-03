@@ -9,8 +9,10 @@ zenocode/
 │
 ├── crates/ 
 │   ├── core/              # Shared logic and abstractions 
-│   ├── providers-core/    # Shared provider abstractions 
+│   ├── cli/               # CLI interface logic
+│   ├── tui/               # TUI interface logic
 │   └── providers/         # LLM provider implementations 
+│       ├── core/          # Shared provider abstractions 
 │       └── openai/        # OpenAI provider 
 │
 ├── app/ 

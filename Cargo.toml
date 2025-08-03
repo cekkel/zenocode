@@ -1,11 +1,12 @@
 [workspace]
 members = [
     "crates/core",
+    "crates/providers/core",
+    "crates/providers/openai",
     "crates/cli",
     "crates/tui",
-    "crates/providers/openai",
-    "bin/zenocode-cli",
-    "bin/zenocode-tui"
+    "app/zenocode-cli",
+    "app/zenocode-tui"
 ]
 
 [workspace.dependencies]

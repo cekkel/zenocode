@@ -1,0 +1,9 @@
+[package]
+name = "zenocode-tui-lib"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+zenocode-core = { path = "../core" }
+crossterm = "0.27"
+# Other existing dependencies...
