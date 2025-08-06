@@ -9,8 +9,10 @@ zenocode/
 │
 ├── crates/ 
 │   ├── core/              # Shared logic and abstractions 
-│   ├── cli/               # CLI interface logic
-│   ├── tui/               # TUI interface logic
+│   ├── interface/         # Interface logic
+│   │   ├── cli/           # Command-line interface
+│   │   └── tui/           # Terminal user interface, initialized by the CLI
+│   ├── completion/        # Completion logic for LLM responses
 │   └── providers/         # LLM provider implementations 
 │       ├── core/          # Shared provider abstractions 
 │       └── openai/        # OpenAI provider 

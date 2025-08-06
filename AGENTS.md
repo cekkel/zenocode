@@ -6,11 +6,11 @@ This repository is an AI coding assistant tool (`zenocode`) with CLI and TUI int
 ## FILE MAP
 - `Cargo.toml` - Workspace configuration
 - `crates/core/` - Shared logic (traits, utilities, config)
-- `crates/cli/` - Command-line interface
-- `crates/tui/` - Terminal user interface
+- `crates/interface/cli/` - Command-line interface
+- `crates/interface/tui/` - Terminal user interface, initialised by the cli
+- `crates/completion` - Completion logic for LLM responses
 - `crates/providers/` - LLM provider implementations (sub-crates)
-- `bin/zenocode-cli/` - CLI binary entry point
-- `bin/zenocode-tui/` - TUI binary entry point
+- `bin` - Binary entry point
 </file_map>
 
 <paved_path>

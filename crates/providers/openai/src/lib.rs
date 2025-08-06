@@ -1,11 +1,7 @@
-use async_stream::stream;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
-use std::pin::Pin;
-use tokio::sync::mpsc;
-use tokio_stream::{Stream, StreamExt};
-use zenocode_core::{Config, CoreError, LLMProvider};
-use zenocode_providers_core::{ProviderFactory, register_provider};
+use zenocode_core::config::Config;
+use zenocode_core::provider::{LLMProvider, ProviderFactory};
 
 #[derive(Debug, Deserialize)]
 struct OpenAIResponse {
@@ -51,7 +47,7 @@ impl OpenAIClient {
 
 #[async_trait::async_trait]
 impl LLMProvider for OpenAIClient {
-    async fn complete(&self, prompt: &str) -> anyhow::Result<String> {
+    async fn query(&self, prompt: &str) -> anyhow::Result<String> {
         let request = OpenAIRequest {
             model: "gpt-4-turbo".to_string(),
             messages: vec![RequestMessage {
@@ -72,19 +68,6 @@ impl LLMProvider for OpenAIClient {
         let response: OpenAIResponse = response.json().await?;
         Ok(response.choices[0].message.content.clone())
     }
-
-    async fn stream(
-        &self,
-        prompt: &str,
-    ) -> anyhow::Result<mpsc::Receiver<anyhow::Result<String>>> {
-        // Simplified implementation - would use Server-Sent Events in real code
-        let (tx, rx) = mpsc::channel(10);
-        let content = self.complete(prompt).await?;
-        for word in content.split_whitespace() {
-            tx.send(Ok(word.to_string())).await?;
-        }
-        Ok(rx)
-    }
 }
 
 // Factory implementation
@@ -92,10 +75,8 @@ pub struct OpenAIFactory;
 
 #[async_trait::async_trait]
 impl ProviderFactory for OpenAIFactory {
-    async fn create(&self, config: &Config) -> Result<Box<dyn LLMProvider>, CoreError> {
-        let api_key = config.api_key.clone().ok_or_else(|| {
-            CoreError::ConfigError("OpenAI API key not configured".to_string())
-        })?;
+    async fn create(&self, config: &Config) -> anyhow::Result<Box<dyn LLMProvider>> {
+        let api_key = config.api_key.clone();
         Ok(Box::new(OpenAIClient::new(&api_key)))
     }
 
@@ -105,7 +86,7 @@ impl ProviderFactory for OpenAIFactory {
 }
 
 // Register on library load
-#[ctor::ctor]
-fn register() {
-    register_provider!(OpenAIFactory);
-}
+// #[ctor::ctor]
+// fn register() {
+//     register_provider!(OpenAIFactory);
+// }

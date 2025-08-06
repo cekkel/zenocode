@@ -1,8 +1,8 @@
 [package]
-name = "zenocod-cli-lib"
+name = "zenocode-cli"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-zenocode-core = { path = "../core" }
+zenocode-core = { path = "../../core" }
 # Other existing dependencies...
