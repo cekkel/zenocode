@@ -9,4 +9,5 @@ crossterm = "0.27"
 ratatui = "0.29.0"
 color-eyre = "0.6.5"
 anyhow.workspace = true
+tokio.workspace = true
 # Other existing dependencies...

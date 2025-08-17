@@ -1,5 +1,4 @@
 use clap::Parser;
-use zenocode_tui::start_tui;
 
 #[derive(Parser, Debug)]
 #[command(
@@ -18,7 +17,7 @@ struct Args {
     model: Option<String>,
 }
 
-pub fn start_cli() {
+pub async fn start_cli() {
     // Initialize the CLI application
     // This is where you would set up your terminal CLI.
 
@@ -31,7 +30,7 @@ pub fn start_cli() {
         // This is where you would call the TUI function to start the terminal UI.
         // For example, you might call `zenocode_tui::start_tui();`
         println!("Starting Zenocode TUI...");
-        start_tui();
+        let _ = zenocode_tui::main().await;
     } else {
         // Start the CLI interface
         // This is where you would handle command line input and output.
