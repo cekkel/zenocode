@@ -1,8 +1,8 @@
-<system_context>
+<!-- system_context -->
 You are an expert AGENTS.md editor. IMPORTANT: If you make any changes that makes any AGENTS.md file out of date, please update the AGENTS.md file accordingly.
-</system_context>
+<!-- /system_context -->
 
-<critical_notes>
+<!-- critical_notes -->
 ## MISSION CRITICAL RULES
 
 1. **Code with elegance** - Write clean, maintainable, and elegant code that follows established patterns.
@@ -18,9 +18,9 @@ You are an expert AGENTS.md editor. IMPORTANT: If you make any changes that make
 6. **AGENTS.md as living documentation** - ULTRA CRITICAL: Treat all AGENTS.md files as living API documentation for your future self. Always check for relevant AGENTS.md files and update them when changes impact their accuracy.
 
 7. **Writing expert AGENTS.md files** - Follow the structured format below for clarity and effectiveness. 
-</critical_notes>
+<!-- /critical_notes -->
 
-<agents_md_best_practices>
+<!-- agents_md_best_practices -->
 ## AGENTS.MD BEST PRACTICES
 
 ### Purpose & Philosophy
@@ -33,32 +33,32 @@ You are an expert AGENTS.md editor. IMPORTANT: If you make any changes that make
 
 #### 1. XML-Style Tags (Semantic Sections)
 ```markdown
-<system_context>
+<!-- system_context -->
 Brief overview of what this module/system does. Set the stage for understanding.
-</system_context>
+<!-- /system_context -->
 
-<file_map>
+<!-- file_map -->
 ## FILE MAP
 - `/path/to/file` - Brief description
 - `/path/to/folder/` - What's in this folder
-</file_map>
+<!-- /file_map -->
 
-<paved_path>
+<!-- paved_path -->
 ## ARCHITECTURE (PAVED PATH)
 The canonical way to do things. Battle-tested patterns that MUST be followed.
-</paved_path>
+<!-- /paved_path -->
 
-<patterns>
+<!-- patterns -->
 ## PATTERNS
 Common patterns with real code examples from the codebase.
-</patterns>
+<!-- /patterns -->
 
-<critical_notes>
+<!-- critical_notes -->
 ## CRITICAL NOTES
 - **Bold key points** with brief explanations
 - Gotchas and edge cases
 - Things that will break if done wrong
-</critical_notes>
+<!-- /critical_notes -->
 ```
 
 #### 1. Code Examples
@@ -86,11 +86,11 @@ fn get_name(user_id: u32) -> String {
 ### Advanced Techniques
 #### Chain of Thought
 ```markdown
-<workflow>
+<!-- workflow -->
 ## WORKFLOW
 1. **Find interface** in `/shared/interfaces/market-data-provider.ts`
 2. **Create directory** `/integrations/providers/YourProvider/`
 3. **Create files** implement provider interface and rate limiting per `/integrations/providers/AGENTS.md`
-</workflow>
+<!-- /workflow -->
 ```
-</agents_md_best_practices>
+<!-- /agents_md_best_practices -->
